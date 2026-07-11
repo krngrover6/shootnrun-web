@@ -1,0 +1,31 @@
+:root {
+  color-scheme: dark;
+  --bg: #0a0d14;
+  --panel: #12151f;
+  --accent: #ff3b30;
+  --accent-2: #ffb020;
+  --text: #f4f4f6;
+  --muted: #9aa0ad;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family:
+    'Inter',
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    sans-serif;
+}
+
+#app {
+  min-height: 100vh;
+}
