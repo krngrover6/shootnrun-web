@@ -6,7 +6,7 @@
     </div>
 
     <div v-show="started" class="unity-canvas-holder">
-      <canvas ref="canvasEl" class="unity-canvas" tabindex="-1"></canvas>
+      <canvas ref="canvasEl" id="unity-canvas" class="unity-canvas" tabindex="-1"></canvas>
       <div v-if="loading" class="unity-progress">
         <div class="bar">
           <div class="fill" :style="{ width: `${Math.round(progress * 100)}%` }"></div>
