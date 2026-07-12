@@ -7,11 +7,15 @@
 
     <div v-show="started" class="unity-canvas-holder">
       <canvas ref="canvasEl" id="unity-canvas" class="unity-canvas" tabindex="-1"></canvas>
-      <div v-if="loading" class="unity-progress">
-        <div class="bar">
-          <div class="fill" :style="{ width: `${Math.round(progress * 100)}%` }"></div>
+      <div v-if="loading" class="unity-loading">
+        <div class="loading-tagline">ARE YOU BORED? LET'S KILL IT.</div>
+        <div class="loading-flavor">Loading firepower...</div>
+        <div class="unity-progress">
+          <div class="bar">
+            <div class="fill" :style="{ width: `${Math.round(progress * 100)}%` }"></div>
+          </div>
+          <div class="pct">{{ Math.round(progress * 100) }}%</div>
         </div>
-        <div class="pct">{{ Math.round(progress * 100) }}%</div>
       </div>
     </div>
   </div>
@@ -123,11 +127,33 @@ defineExpose({ start })
   display: block;
 }
 
-.unity-progress {
+.unity-loading {
   position: absolute;
-  left: 50%;
-  bottom: 12%;
-  transform: translateX(-50%);
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  pointer-events: none;
+}
+
+.loading-tagline {
+  font-size: clamp(1.3rem, 3vw, 2.2rem);
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  color: white;
+  text-shadow: 0 0 20px var(--accent), 0 2px 8px rgba(0, 0, 0, 0.6);
+}
+
+.loading-flavor {
+  font-size: 0.95rem;
+  color: var(--muted);
+  margin-bottom: 1.5rem;
+  letter-spacing: 0.03em;
+}
+
+.unity-progress {
   width: 60%;
   display: flex;
   align-items: center;
